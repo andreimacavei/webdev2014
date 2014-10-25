@@ -1,0 +1,86 @@
+******************** Lab02 *******************
+Javascript:
+    -types: Number, String, Array, Object, Boolean, Function,[Undefined]
+    -structuri de decizie: if, for, switch
+
+SotA App Development:
+
+    - aplicatii distribuite
+                       [] --- []
+          UI --- API /  | \ /  |
+                     \  | / \  |
+                       [] --- []
+
+    - virtualizare (cloud)
+
+    - Saas:  aplicatie online
+    - Platform as a sservice(Paas) - ex: heroku,
+    - Iaas (configurare individuala)
+
+Ajax: ofera o platforma de dezvoltare pe Browser (BrowserPlatform)
+    - SPA (single page app)
+    - JsApps
+    - Web App
+
+Browser Platform:
+    - prezentare: CSS
+    - semantica: HTML
+    - logica: JS
+
+API:
+    - endpoints
+    - SDK
+
+DOM (Document Object Model):
+    - html tags <> Js objects
+
+HTTP:
+    - request:
+        -method : GET, POST, PUT, DELETE
+        -url
+        -statusCode: 2xx(OK), 4xx(Client Error), 5xx(Server Error)
+        -body
+        -header: Accept:<ctypes>, Content-type:<ctype>
+
+Scenariu:
+
+-Clientul trimite request catre server:
+GET /ceva.html
+header: content-type:text
+
+-Serverul trimite response:
+status code:200
+header: ....
+<html> .... </html>
+
+Structura URL:
+
+http://www.domeniu.com[:port]/users/create?param=value&par=val#hashtag
+[protocolul]://subdomeniu.domeniu.topleveldomeniu[:port]/path/queryString#hashtag
+
+unde:
+http <=> protocolul
+www.domeniu.com  <=>  subdomeniu.domeniu.topleveldomeniu
+/.../users/  <=>  path
+create?param=val&par=val2  <=>  queryString
+
+REST (o conventie pe HTTP pentru schimb de date):
+    - fiecare data intr-un sistem distribuit o putem considera ca fiind o resursa.
+    - o resursa este identificata unic printr-un url
+    - metode folosite pe resursa (ex: users):
+        - POST : POST /users
+        - citesc resursa: GET /users  (GET /users/:id)
+        - actualizez resursa: PUT /users/:id
+        - sterg resursa: DELETE /users/:id
+
+CURL: call URL
+ex:
+
+curl -XGET https://webdev-c9-alexandrutopliceanu.c9.io/users
+
+curl -XPOST https://webdev-c9-alexandrutopliceanu.c9.io/users -d '{"name": "andreimacavei"}' -H 'Content-Type: application/json'
+
+------
+jQuery:
+
+    -asincronicitate: callback-urile sunt puse pe coada si apoi de aici sunt luate si puse in stiva de executie (cand aceasta se goleste)

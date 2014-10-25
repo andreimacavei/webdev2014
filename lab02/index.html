@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<html>
+<head>
+</head>
+
+<body>
+
+    <h1> Pagina de test pentru Javascript </h1>
+    <h2> Hai sa invatam Javascript </h2>
+
+</body>
+
+<script type="text/javascript">
+var create = function (resource, data, callback) {
+    /**
+     * @param (String) resource
+     * @param (Object) data
+     * @param (Function) callback
+    */
+    $.ajax({ //Async JS and XML
+        method: 'POST',
+        url: 'https://webdev-c9-alexandrutopliceanu.c9.io/' + resource,
+        dataType: 'json',
+        data: data,
+        success: function onSuccess (data) {
+            callback(null, data);
+        },
+        error: function onError (error) {
+            callback(error);
+        }
+    });
+};
+
+var read = function(resource, callback) {
+    /**
+     * @param {String} resource - name of the resource to create
+     * @param {Function} callback - continuation function.
+     */
+
+     $.ajax({
+        method: 'GET',
+        url: 'https://webdev-c9-alexandrutopliceanu.c9.io/' + resource,
+        success: function onSuccess(data) {
+            callback(null, data);
+        },
+        error: function onError(error) {
+            callback(error);
+        }
+     });
+};
+
+create('users', {name:'andreimacavei'}, function (error, data) {
+    if (error) console.log('Eroare', error.message);
+    else console.log('Succes', data);
+});
+
+read('users', function (err, data) {
+    if (err) console.log(err)
+    else console.log(JSON.stringify(data))
+})
+
+// read('users', function(error, data) {
+//     if (error) console.log('Eroare', error.message);
+//     else console.log('Succes', data);
+// });
+
+
+// setTimeout(function doSomething() {
+//     console.log('something');
+// }, 10000);
+
+</script>
+
+</html>
